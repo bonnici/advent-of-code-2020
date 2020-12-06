@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="609783dc-dd63-40f5-8ec6-2400bdb1f26a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/day2js/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day2js/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jstemplate/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jstemplate/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/src/day3/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/src/day3/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/src/day4/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/src/day4/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/src/day5/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/src/day6/sample.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/src/lib/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day2/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/day2/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,17 +39,28 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.16.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="10.17.48" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/day2js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ts/src/day6" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="nodejs_package_manager_path" value="yarn" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="ts.external.directory.path" value="D:\src\advent-of-code-2020\ts\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\src\advent-of-code-2020\day2js" />
+      <recent name="D:\src\advent-of-code-2020\ts\src\day6" />
+      <recent name="D:\src\advent-of-code-2020\ts\src\day5" />
       <recent name="D:\src\advent-of-code-2020" />
+      <recent name="D:\src\advent-of-code-2020\day2js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\src\advent-of-code-2020\js" />
+      <recent name="D:\src\advent-of-code-2020\rust" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.day2js">
@@ -116,12 +129,26 @@
       <updated>1606995605481</updated>
       <workItem from="1606995606815" duration="14000" />
       <workItem from="1606995641815" duration="4588000" />
-      <workItem from="1607150261158" duration="6834000" />
+      <workItem from="1607150261158" duration="12836000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/ts/src/day3/index.js.map" />
+        <option value="$PROJECT_DIR$/ts/src/day3/index.js" />
+        <option value="$PROJECT_DIR$/ts/src/lib/index.js" />
+        <option value="$PROJECT_DIR$/ts/src/lib/index.js.map" />
+        <option value="$PROJECT_DIR$/ts/src/day4/index.js.map" />
+        <option value="$PROJECT_DIR$/ts/src/day4/index.js" />
+        <option value="$PROJECT_DIR$/ts/src/day5/index.js.map" />
+        <option value="$PROJECT_DIR$/ts/src/day5/index.js" />
+        <option value="$PROJECT_DIR$/ts/src/day6/index.js.map" />
+        <option value="$PROJECT_DIR$/ts/src/day6/index.js" />
+      </list>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
