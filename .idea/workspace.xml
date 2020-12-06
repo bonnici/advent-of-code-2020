@@ -88,7 +88,7 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="day2js" type="NodeJSConfigurationType" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/day2js">
+    <configuration name="day2js" type="NodeJSConfigurationType" path-to-js-file="$PROJECT_DIR$/js/day2/index.js" working-dir="$PROJECT_DIR$/js/day2">
       <method v="2" />
     </configuration>
     <list>
@@ -116,7 +116,7 @@
       <updated>1606995605481</updated>
       <workItem from="1606995606815" duration="14000" />
       <workItem from="1606995641815" duration="4588000" />
-      <workItem from="1607150261158" duration="6236000" />
+      <workItem from="1607150261158" duration="6834000" />
     </task>
     <servers />
   </component>
