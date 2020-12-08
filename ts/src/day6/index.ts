@@ -1,6 +1,7 @@
-import { readLinesTemp } from '../lib';
 
-const input = readLinesTemp('src/day6/input.txt');
+import { readLinesInGroups } from '../lib';
+
+const input = readLinesInGroups('src/day6/input.txt');
 console.log('input', input);
 
 let sumOfCountsPt1 = 0;
