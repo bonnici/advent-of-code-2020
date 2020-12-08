@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="609783dc-dd63-40f5-8ec6-2400bdb1f26a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ts/src/day6/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ts/src/day6/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ts/src/lib/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ts/src/lib/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ts/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/ts/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +32,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="javascript.nodejs.core.library.configured.version" value="12.19.0" />
-    <property name="javascript.nodejs.core.library.typings.version" value="12.19.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="javascript.nodejs.core.library.configured.version" value="10.16.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="10.17.48" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -45,15 +47,15 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/ts/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\src\advent-of-code-2020\js" />
       <recent name="D:\src\advent-of-code-2020\ts\src\template" />
       <recent name="D:\src\advent-of-code-2020\ts\src\day6" />
       <recent name="D:\src\advent-of-code-2020\ts\src\day5" />
       <recent name="D:\src\advent-of-code-2020" />
-      <recent name="D:\src\advent-of-code-2020\day2js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\src\advent-of-code-2020\js" />
@@ -61,6 +63,17 @@
     </key>
   </component>
   <component name="RunManager" selected="Node.js.day2js">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="day1" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run --package day1 --bin day1" />
@@ -115,6 +128,7 @@
       <workItem from="1606995641815" duration="4588000" />
       <workItem from="1607150261158" duration="12910000" />
       <workItem from="1607304748846" duration="2064000" />
+      <workItem from="1607419076135" duration="244000" />
     </task>
     <servers />
   </component>
