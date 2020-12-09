@@ -8,6 +8,7 @@
     "day5": "tsc && node src/day5/index.js",
     "day6": "tsc && node src/day6/index.js",
     "day7": "tsc && node src/day7/index.js",
+    "day8": "tsc && node src/day8/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "MIT",
