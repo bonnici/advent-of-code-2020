@@ -77,7 +77,7 @@ class Entries {
 }
 
 const entries = new Entries(25);
-let badNum = undefined;
+let badNum;
 
 for (const curNum of input) {
     const ok = entries.processNumber(curNum);
