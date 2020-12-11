@@ -1,10 +1,9 @@
 import { readLinesAsInts } from '../lib';
 
-const input = readLinesAsInts('src/day10/sample2.txt');
+const input = readLinesAsInts('src/day10/input.txt');
 // console.log('input', input);
 
 const sorted = [...input].sort((a, b) => a - b);
-// console.log('sorted', sorted);
 
 const differences = [0, 0, 1];
 let lastNum = 0;
@@ -25,38 +24,55 @@ for (const curNum of sorted) {
 console.log(`differences: ${differences[0]}, ${differences[1]}, ${differences[2]}`);
 console.log(`Part 1: ${differences[0] * differences[2]}`);
 
-const branchesByIndex = [];
-let branchCounts = [0, 0, 0];
-for (let i = 0; i < sorted.length; i++) {
+sorted.unshift(0);
+sorted.push(sorted[sorted.length - 1] + 3);
+// console.log('sorted', sorted);
+
+const diffsByIndex = [];
+for (let i = 0; i < sorted.length - 1; i++) {
   const curNum = sorted[i];
-  if (i + 3 < sorted.length && sorted[i + 3] === curNum + 3) {
-    branchesByIndex.push(3);
-    branchCounts[2]++;
-  } else if (i + 2 < sorted.length && sorted[i + 2] === curNum + 2) {
-    branchesByIndex.push(2);
-    branchCounts[1]++;
+  diffsByIndex.push(sorted[i + 1] - sorted[i]);
+}
+
+let subgroups = [];
+let curSubgroup: number[] = [];
+
+for (const branch of diffsByIndex) {
+  if (branch === 3) {
+    subgroups.push(curSubgroup);
+    curSubgroup = [];
   } else {
-    branchesByIndex.push(1);
-    branchCounts[0]++;
+    curSubgroup.push(branch);
   }
 }
 
-console.log(`branchesByIndex`, branchesByIndex);
-console.log(`branchCounts`, branchCounts);
+subgroups.push(curSubgroup);
+subgroups = subgroups.filter(s => s.length > 0);
 
-let skippedDifferences = 0;
-for (let i = 0; i < branchesByIndex.length; i++) {
-  if (branchesByIndex[i] === 2 && i + 1 < branchesByIndex.length) {
-    skippedDifferences += branchesByIndex[i + 1];
-  } else if (branchesByIndex[i] === 3) {
-    if (i + 1 < branchesByIndex.length) {
-      skippedDifferences += branchesByIndex[i + 1];
-    }
-    if (i + 2 < branchesByIndex.length) {
-      skippedDifferences += branchesByIndex[i + 2];
-    }
+// console.log(`diffsByIndex`, diffsByIndex);
+// console.log(`subgroups`, subgroups);
+
+// all differences are 1s or 3s, can use the tribonnaci method
+// also know that the max length of 1s is 4
+
+const tribonnaci = (length: number): number => {
+  switch (length) {
+    case 1:
+      return 1;
+    case 2:
+      return 2;
+    case 3:
+      return 4;
+    case 4:
+      return 7;
+    default:
+      throw new Error('unexpected tribonnaci');
   }
 }
 
-console.log(`skippedDifferences: ${skippedDifferences}`);
-console.log(`Part 2: ${Math.pow(2, branchCounts[1]) * Math.pow(3, branchCounts[2]) - skippedDifferences}`);
+let result = 1;
+for (const subgroup of subgroups) {
+  result *= tribonnaci(subgroup.length);
+}
+
+console.log(`Part 2 ${result}`);
