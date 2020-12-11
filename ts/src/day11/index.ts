@@ -55,31 +55,13 @@ const isOccupied = (state: string[][], rowStart: number, rowDelta: number, colSt
 const occupiedCount = (state: string[][], i: number, j: number, part2: boolean): number => {
   let count = 0;
 
-  if (isOccupied(state, i, -1, j, -1, part2)) {
-    count++;
+  for (const rowDelta of [-1, 0, 1]) {
+    for (const colDelta of [-1, 0, 1]) {
+      if ((rowDelta !== 0 || colDelta !== 0) && isOccupied(state, i, rowDelta, j, colDelta, part2)) {
+        count++;
+      }
+    }
   }
-  if (isOccupied(state, i, -1, j, 0, part2)) {
-    count++;
-  }
-  if (isOccupied(state, i, -1, j, 1, part2)) {
-    count++;
-  }
-  if (isOccupied(state, i, 0, j, -1, part2)) {
-    count++;
-  }
-  if (isOccupied(state, i, 0, j, 1, part2)) {
-    count++;
-  }
-  if (isOccupied(state, i, 1, j, -1, part2)) {
-    count++;
-  }
-  if (isOccupied(state, i, 1, j, 0, part2)) {
-    count++;
-  }
-  if (isOccupied(state, i, 1, j, 1, part2)) {
-    count++;
-  }
-
 
   return count;
 }
