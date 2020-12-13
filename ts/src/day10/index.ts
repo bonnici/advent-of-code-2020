@@ -30,7 +30,6 @@ sorted.push(sorted[sorted.length - 1] + 3);
 
 const diffsByIndex = [];
 for (let i = 0; i < sorted.length - 1; i++) {
-  const curNum = sorted[i];
   diffsByIndex.push(sorted[i + 1] - sorted[i]);
 }
 

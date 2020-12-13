@@ -9,6 +9,9 @@ export const readLinesAsInts = (path: string) =>
 export const readLinesAsChars = (path: string) =>
   readLines(path).map(line => line.split(''));
 
+export const readLinesWithTransform = (path: string, transform: (line: string) => any) =>
+  readLines(path).map(line => transform(line));
+
 export const readLinesInGroups = (path: string) => {
   const lines = readLines(path);
 
