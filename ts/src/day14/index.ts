@@ -44,10 +44,10 @@ for (const line of input) {
   }
 }
 
-let sum = 0n;
+let sum = 0;
 for (const [addr, value] of memory.entries()) {
-  console.log('memory', { addr, value });
-  sum += BigInt(value);
+  // console.log('memory', { addr, value });
+  sum += value;
 }
 
 console.log(`Part 1: ${sum}`);
