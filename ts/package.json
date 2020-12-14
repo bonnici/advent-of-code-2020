@@ -15,6 +15,7 @@
     "day11": "yarn build && node src/day11/index.js",
     "day12": "yarn build && node src/day12/index.js",
     "day13": "yarn build && node src/day13/index.js",
+    "day14": "yarn build && node src/day14/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "MIT",
