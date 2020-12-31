@@ -85,23 +85,32 @@ class Tile {
 
   public rotate() {
     // Should probably rotate a specific number of times instead of one at a time
+    this.pixels = Tile.staticRotate(this.pixels);
+    this.recalculateEdges();
+  }
+
+  public static staticRotate(pixels: string[]) {
+    // Should probably rotate a specific number of times instead of one at a time
     const newPixels: string[] = [];
 
-    for (let i = 0; i < this.pixels[0].length; i++) {
+    for (let i = 0; i < pixels[0].length; i++) {
       const newRow = [];
-      for (let j = this.pixels.length - 1; j >= 0; j--) {
-        newRow.push(this.pixels[j].charAt(i));
+      for (let j = pixels.length - 1; j >= 0; j--) {
+        newRow.push(pixels[j].charAt(i));
       }
       newPixels.push(newRow.join(''));
     }
 
-    this.pixels = newPixels;
-    this.recalculateEdges();
+    return newPixels;
   }
 
   public flip() {
-    this.pixels = this.pixels.map(str => str.split('').reverse().join(''));
+    this.pixels = Tile.staticFlip(this.pixels);
     this.recalculateEdges();
+  }
+
+  public static staticFlip(pixels: string[]) {
+    return pixels.map(str => str.split('').reverse().join(''));
   }
 
   private recalculateEdges() {
@@ -194,12 +203,11 @@ if (corners.length === 4) {
 // tslint:disable-next-line:max-classes-per-file
 class Image {
   private stitchedTiles: Tile[][] = [];
+  private stitchedPixels: string[][] = [];
 
   constructor(startingTile: Tile) {
     while (!startingTile.getNeighbour(Neighbour.RIGHT, true) || !startingTile.getNeighbour(Neighbour.BOTTOM, true)) {
-      console.log('before rotate', startingTile.pixels);
       startingTile.rotate();
-      console.log('after rotate', startingTile.pixels);
     }
 
     let rowStart: Tile | null = startingTile;
@@ -252,20 +260,87 @@ class Image {
   }
 
   public stitch() {
-    // todo loop through each tile, remove border, add to stitchedPixels array
+    for (const tileRow of this.stitchedTiles) {
+      for (let rowInTiles = 1; rowInTiles < tileRow[0].pixels.length - 1; rowInTiles++) {
+        const stitchedRow = tileRow.map(tile => {
+          const row = tile.pixels[rowInTiles];
+          return row.substr(1, row.length - 2);
+        }).join('');
+        this.stitchedPixels.push(stitchedRow.split(''));
+      }
+    }
   }
 
   public findMonsters() {
-    // todo loop through each pixel and call findMonsterAt with all orientations/flipped
+    for (let i = 0; i < this.stitchedPixels.length; i++) {
+      for (let j = 0; j < this.stitchedPixels[i].length; j++) {
+        this.findMonsterAt(j, i, 0, false);
+        this.findMonsterAt(j, i, 0, true);
+        this.findMonsterAt(j, i, 1, false);
+        this.findMonsterAt(j, i, 1, true);
+        this.findMonsterAt(j, i, 2, false);
+        this.findMonsterAt(j, i, 2, true);
+        this.findMonsterAt(j, i, 3, false);
+        this.findMonsterAt(j, i, 3, true);
+      }
+    }
   }
 
   private findMonsterAt(x: number, y: number, rotations: number, flipped: boolean) {
-    // todo check using hard-coded indicies
+    let targets = [
+      '                  # ',
+      '#    ##    ##    ###',
+      ' #  #  #  #  #  #   ',
+    ];
+
+    if (flipped) {
+      targets = Tile.staticFlip(targets);
+    }
+    for (let i = 0; i < rotations; i++) {
+      targets = Tile.staticRotate(targets);
+    }
+
+    if (x + targets[0].length > this.stitchedPixels[0].length || y + targets.length > this.stitchedPixels.length) {
+      return;
+    }
+
+    if (this.findMonsterAdjusted(x, y, targets)) {
+      console.log(`Found monster at x=${x}, y=${y} with rotations=${rotations} and flipped=${flipped}`);
+      for (let row = 0; row < targets.length; row++) {
+        for (let col = 0; col < targets[0].length; col++) {
+          if (targets[row].charAt(col) === '#') {
+            this.stitchedPixels[y + row][x + col] = 'O';
+          }
+        }
+      }
+    }
+  }
+
+  private findMonsterAdjusted(x: number, y: number, targets: string[]): boolean {
+    for (let row = 0; row < targets.length; row++) {
+      for (let col = 0; col < targets[0].length; col++) {
+        if (targets[row].charAt(col) === '#') {
+          if (this.stitchedPixels[y + row][x + col] === '.') {
+            return false;
+          }
+        }
+      }
+    }
+    return true;
+  }
+
+  public countHashes() {
+    let count = 0;
+    for (const row of this.stitchedPixels) {
+      count += row.filter(ch => ch === '#').length;
+    }
+    return count;
   }
 }
 
 const image = new Image(corners[0]);
 image.stitch();
 image.findMonsters();
-// todo - count # characters
+const part2 = image.countHashes();
+console.log(`Part 2: ${part2}`);
 
