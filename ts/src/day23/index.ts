@@ -1,17 +1,17 @@
 import { readLines } from '../lib';
 
-const input = readLines('src/day23/sample.txt');
+const input = readLines('src/day23/input.txt');
 // console.log('input', input);
 
 const parsed = input[0].split('').map(c => parseInt(c, 10));
 // console.log('parsed', parsed);
 
-class CupGame {
+class CupGamePart1 {
   public cups: number[];
   public currentCupIndex: number;
   public curMove: number;
 
-  constructor(cups: number[], numCups: number) {
+  constructor(cups: number[]) {
     this.cups = cups;
     this.currentCupIndex = 0;
     this.curMove = 1;
@@ -30,9 +30,6 @@ class CupGame {
 
     console.log(`-- move ${this.curMove} --`);
     this.printCups();
-    if (this.curMove % 100000 === 0) {
-      console.log(`-- move ${this.curMove} --`);
-    }
 
     const currentCup = this.cups[this.currentCupIndex];
 
@@ -93,17 +90,6 @@ class CupGame {
   }
 }
 
-/*
-const game = new CupGame(parsed, parsed.length);
+const game = new CupGamePart1(parsed);
 game.play(100);
 console.log(`Part 1: ${game.labels()}`)
-*/
-
-const game = new CupGame(parsed, 20);
-game.play(10);
-
-/*
-const gamePt2 = new CupGame(parsed, 1000000);
-gamePt2.play(10000000);
-console.log(`Part 2: ${gamePt2.part2()}`)
-*/
